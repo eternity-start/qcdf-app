@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "我的商城",
+				"navigationBarTitleText": "商城",
 				"navigationBarTextStyle":"white"
 			}
 		}
@@ -36,11 +36,12 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#ff0f47",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#ffaaff"
 	},
   "tabBar":{
-    "color":"#eee",
+    "color":"#aaaa7f",
     "selectedColor":"#ff1130",
+	"backgroundColor":"#eee",
     "list":[
       {
         "pagePath":"pages/index/index",
