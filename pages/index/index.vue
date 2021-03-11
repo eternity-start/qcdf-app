@@ -8,7 +8,7 @@
 		</swiper>
 		<!-- 导航 -->
 		<view class="nav">
-			<view  class="item" v-for="(items,index) in navs" :key="index">
+			<view @click="getGoodList(items.path)" class="item" v-for="(items,index) in navs" :key="index">
 				<view :class="items.icons"></view>
 				<text>{{items.title}}</text>
 			</view>
@@ -58,22 +58,22 @@
 				  {
 				    icons: "iconfont icon-ziyuan",
 				    title: "学习超市",
-				    path: "/pages/goods/list"
+				    path: "/goods/good-list/good-list"
 				  },
 				  {
 				    icons: "iconfont icon-tupian",
 				    title: "学习图片",
-				    path: "/pages/pics/pics"
+				    path: "/goods/study-img/study-img"
 				  },
 				  {
 				    icons: "iconfont icon-guanyuwomen",
 				    title: "联系我们",
-				    path: "/pages/contact/contact"
+				    path: "/goods/callme/callme"
 				  },
 				  {
 				    icons: "iconfont icon-shipin",
 				    title: "学习视频",
-				    path: "/pages/videos/videos"
+				    path: "/goods/study-voide/study-voide"
 				  }
 				]
 			}
@@ -92,36 +92,22 @@
 				// console.log(res.data.message)
 				this.swiper = res.data.message
 			},
+			//获取商品
 			async getGoods() {
-				// 未封装
-				// uni.request({
-				// 	url:'http://localhost:8082/api/getgoods?pageindex=1',
-				// 	method:'GET',
-				// 	success:res=>{
-				// 		if(res.data.status!==0){
-				// 			uni.showToast({
-				// 				title:"获取数据失败"
-				// 			})
-				// 		}
-				// 		this.goods = res.data.message
-				// 	}
-				// })
 				//封装
 				const res = await this.$myRequest({
 					url:'/api/getgoods?pageindex=1',
 					method:'GET',
 				})
 				this.goods = res.data.message
+			},
+			// 点击导航
+			getGoodList(url){
+				uni.navigateTo({
+					url
+				})
+				console.log(url)
 			}
-			// 获取推荐商品数据
-			// async getGoods() {
-			// 	const res = await this.$myRequest({
-			// 		method:'GET',
-			// 		url:'/api/getgoods?pageindex=1'
-			// 	})
-			// 	console.log(res)
-			// 	this.goods = res.data.message
-			// }
 		}
 	}
 </script>

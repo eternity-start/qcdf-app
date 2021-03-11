@@ -31,7 +31,43 @@
 				"enablePullDownRefresh": false
 			}
 			}
-		],
+		    ,{
+            "path" : "goods/good-list/good-list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "学习超市",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "goods/study-img/study-img",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "学习图片",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "goods/callme/callme",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "联系我们",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "goods/study-voide/study-voide",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "学习视频",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
