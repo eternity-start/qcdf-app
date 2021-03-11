@@ -99,7 +99,7 @@
 				uni.navigateTo({
 					url
 				})
-				console.log(url)
+				// console.log(url)
 			}
 		}
 	}
