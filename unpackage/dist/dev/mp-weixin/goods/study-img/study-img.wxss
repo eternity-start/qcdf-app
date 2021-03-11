@@ -38,24 +38,30 @@ page .pics {
 page .pics .pic-left {
   width: 200rpx;
   height: 100%;
-}
-page .pics .pic-left .left-item {
   text-align: center;
-  padding: 5rpx;
   line-height: 60px;
+}
+page .pics .pic-left ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+}
+page .pics .pic-left .active {
+  background-color: #e11e0c;
+  color: #FFFFFF;
 }
 page .pics .pic-right {
   width: 520rpx;
-  margin: 0 10rpx;
-}
-page .pics .pic-right image {
-  width: 100%;
   height: 100%;
+  margin: 10rpx auto;
 }
-page .pics .pic-right text {
+page .pics .pic-right .item image {
+  width: 520rpx;
+  height: 520rpx;
+  border-radius: 5px;
+}
+page .pics .pic-right .item text {
   font-size: 28rpx;
-  color: #424242;
-  margin: 10rpx;
-  padding: 10rpx;
+  line-height: 60px;
 }
 

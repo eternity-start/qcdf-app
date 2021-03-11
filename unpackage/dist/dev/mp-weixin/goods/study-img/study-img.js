@@ -148,12 +148,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
       catelist: [],
-      interlist: [] };
+      interlist: [],
+      active: 0 };
 
   },
   onLoad: function onLoad() {
@@ -167,12 +171,14 @@ var _default =
 
                 _this.catelist = res.data.message;case 4:case "end":return _context.stop();}}}, _callee);}))();
     },
-    inter: function inter(id) {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+    inter: function inter(index, id) {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                _this2.active = index;_context2.next = 3;return (
                   _this2.$myRequest({
                     url: '/api/getimages/' + id,
-                    method: 'GET' }));case 2:res = _context2.sent;
+                    method: 'GET' }));case 3:res = _context2.sent;
 
-                _this2.interlist = res.data.message;case 4:case "end":return _context2.stop();}}}, _callee2);}))();
+                _this2.interlist = res.data.message;case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+
     } } };exports.default = _default;
 
 /***/ }),

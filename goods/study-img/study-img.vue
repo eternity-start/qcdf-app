@@ -1,18 +1,21 @@
 <template>
 	<view class="pics">
-		<scroll-view class="pic-left" scroll-y scroll-top>
-			<view @click="inter(items.id)" class="left-item" v-for="items in catelist" :key="items.id">
+		<scroll-view show-scrollbar class="pic-left" scroll-y scroll-top>
+			<view 
+			:class="active===index?'active':''"
+			@click="inter(index,items.id)" 
+			v-for="(items,index) in catelist" 
+			:key="items.id">
 				{{items.title}}
 			</view>
 		</scroll-view>
-		<view class="pic-right" v-for="item in interlist" :key='item.id'>
-			<view class="">
-				<image :src="item.img_url" mode=""></image>
-				<view class="">
+		<scroll-view scroll-y class="pic-right">
+			<view v-for="item in interlist" :key='item.id'>
+					<image :src="item.img_url" mode=""></image>
 					<text>{{item.title}}</text>
-				</view>
 			</view>
-		</view>
+		</scroll-view>
+		
 	</view>
 </template>
 
@@ -21,7 +24,8 @@
 		data() {
 			return {
 				catelist:[],
-				interlist:[]
+				interlist:[],
+				active:0
 			}
 		},
 		onLoad() {
@@ -35,12 +39,14 @@
 				})
 				this.catelist = res.data.message
 			},
-			async inter(id){
+			async inter(index,id){
+				this.active = index
 				const res = await this.$myRequest({
 					url:'/api/getimages/'+id,
 					method:'GET'
 				})
 				this.interlist = res.data.message
+				
 			}
 		}
 	}
@@ -54,30 +60,39 @@ page{
 		flex-wrap: wrap;
 		height: 100%;
 		.pic-left{
+			::-webkit-scrollbar {
+					width: 0;
+					height: 0;
+					background-color: transparent;
+				} 
 			// background-color: #FFFFFF;
 			width: 200rpx;
 			height: 100%;
-			.left-item{
-				text-align: center;
-				padding: 5rpx;
-				// height: 60px;
-				line-height: 60px;
-				}
+			text-align: center;
+			// padding: 5rpx;
+			// height: 60px;
+			line-height: 60px;
+			.active{
+				background-color: $myshop-color;
+				color: #FFFFFF;
+			}
 			}
 		.pic-right{
 			// background-color: #FFFFFF;
 			width: 520rpx;
-			margin:  0 10rpx ;
-			image{
-				width: 100%;
-				height: 100%;
+			height: 100%;
+			margin: 10rpx auto;
+			.item{
+					image{
+						width: 520rpx;
+						height: 520rpx;
+						border-radius: 5px;
+						}
+					text{
+						font-size: 28rpx;
+						line-height: 60px;
+					}
 				}
-			text{
-				font-size: 28rpx;
-				color: #424242;
-				margin: 10rpx;
-				padding: 10rpx;
-			}
 			}
 		}
 }
