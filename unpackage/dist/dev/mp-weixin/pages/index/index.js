@@ -101,6 +101,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    goodList: function() {
+      return __webpack_require__.e(/*! import() | components/good-list/good-list */ "components/good-list/good-list").then(__webpack_require__.bind(null, /*! @/components/good-list/good-list.vue */ 65))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -136,58 +159,51 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var goodList = function goodList() {__webpack_require__.e(/*! require.ensure | components/good-list/good-list */ "components/good-list/good-list").then((function () {return resolve(__webpack_require__(/*! ../../components/good-list/good-list.vue */ 65));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
+  components: {
+    'good-list': goodList },
+
   data: function data() {
     return {
       swiper: [],
@@ -196,22 +212,22 @@ var _default =
       {
         icons: "iconfont icon-ziyuan",
         title: "学习超市",
-        path: "/pages/goods/list" },
+        path: "/goods/good-list/good-list" },
 
       {
         icons: "iconfont icon-tupian",
         title: "学习图片",
-        path: "/pages/pics/pics" },
+        path: "/goods/study-img/study-img" },
 
       {
         icons: "iconfont icon-guanyuwomen",
         title: "联系我们",
-        path: "/pages/contact/contact" },
+        path: "/goods/callme/callme" },
 
       {
         icons: "iconfont icon-shipin",
         title: "学习视频",
-        path: "/pages/videos/videos" }] };
+        path: "/goods/study-voide/study-voide" }] };
 
 
 
@@ -230,37 +246,23 @@ var _default =
                 // console.log(res.data.message)
                 _this.swiper = res.data.message;case 4:case "end":return _context.stop();}}}, _callee);}))();
     },
+    //获取商品
     getGoods: function getGoods() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                   _this2.$myRequest({
                     url: '/api/getgoods?pageindex=1',
                     method: 'GET' }));case 2:res = _context2.sent;
 
                 _this2.goods = res.data.message;case 4:case "end":return _context2.stop();}}}, _callee2);}))();
-    }
-    // 获取推荐商品数据
-    // async getGoods() {
-    // 	const res = await this.$myRequest({
-    // 		method:'GET',
-    // 		url:'/api/getgoods?pageindex=1'
-    // 	})
-    // 	console.log(res)
-    // 	this.goods = res.data.message
-    // }
-  } };exports.default = _default;
+    },
+    // 点击导航
+    getGoodList: function getGoodList(url) {
+      uni.navigateTo({
+        url: url });
+
+      console.log(url);
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 18 */,

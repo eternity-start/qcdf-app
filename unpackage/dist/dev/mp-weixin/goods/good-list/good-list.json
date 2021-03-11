@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "学习超市",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "good-list": "/components/good-list/good-list"
+  }
+}

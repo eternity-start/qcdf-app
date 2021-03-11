@@ -3,7 +3,11 @@
     "pages/index/index",
     "pages/shop/shop",
     "pages/my/my",
-    "pages/message/message"
+    "pages/message/message",
+    "goods/good-list/good-list",
+    "goods/study-img/study-img",
+    "goods/callme/callme",
+    "goods/study-voide/study-voide"
   ],
   "subPackages": [],
   "window": {
@@ -42,5 +46,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

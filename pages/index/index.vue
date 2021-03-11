@@ -1,7 +1,7 @@
 <template>
 	<view class="home">
 		<!-- 轮播图 -->
-		<swiper circular autoplay indicator-dots indicator-color="#ffffff" indicator-active-color="#003952">
+		<swiper class="swiper1" circular autoplay indicator-dots indicator-color="#ffffff" indicator-active-color="#003952">
 			<swiper-item v-for="item in swiper" :key="item.id">
 				<image :src="item.img" mode=""></image>
 			</swiper-item>
@@ -32,24 +32,17 @@
 				<text>推荐商品</text>
 			</view>
 			<!-- 推荐图片 -->
-			<view class="goods-list">
-				<view class="goods-item" v-for="items in goods" :key="items.id">
-					<image :src="items.img_url" mode=""></image>
-					<view class="price">
-						<text>{{items.sell_price}}</text>
-						<text>{{items.market_price}}</text>
-					</view>
-					<view class="name">
-						{{items.title}}
-					</view>
-				</view>
-			</view>
+			<good-list :goods="goods"></good-list>
 		</view>
 	</view>
 </template>
 
 <script>
+	import goodList from '../../components/good-list/good-list.vue'
 	export default {
+		components:{
+			'good-list':goodList
+		},
 		data() {
 			return {
 				swiper:[],
@@ -97,7 +90,7 @@
 				//封装
 				const res = await this.$myRequest({
 					url:'/api/getgoods?pageindex=1',
-					method:'GET',
+					method:'GET'
 				})
 				this.goods = res.data.message
 			},
@@ -115,7 +108,7 @@
 <style lang="scss">
 	@import url('../../static/fonts/iconfont.css');
 	.home{
-		swiper{
+		.swiper1{
 			height: 408rpx;
 			image{
 				width: 100%;
@@ -153,40 +146,7 @@
 				color: $myshop-color;
 				font-size: 38rpx;
 			}
-			.goods-list{
-				display: flex;
-				flex-wrap: wrap;
-				padding: 10rpx;
-				// box-sizing: border-box;
-				background-color: #eee;
-				.goods-item{
-					width: 345rpx;
-					box-sizing: border-box;
-					padding: 10rpx;
-					margin: 5rpx auto;
-					background-color: #FFFFFF;
-					image{
-						height: 350rpx;
-						width: 100%;
-					}
-					.price{
-						text:nth-child(1){
-							// font-size: 26rpx;
-							color: $myshop-color;
-						}
-						text:nth-child(2){
-							font-size: 16rpx;
-							margin-left: 20rpx;
-							color: #919191;
-							text-decoration: line-through;
-						}
-					}
-					.name{
-						color: #646740;
-						font-size: 20rpx;
-					}
-				}
-			}
+			
 		}
 	}
 </style>
