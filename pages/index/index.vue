@@ -81,7 +81,7 @@
 		onLoad() {
 		  	this.getSwiper()
 			this.getGoods()
-		},
+		},  
 		methods: {
 			//二次封装的方法  获取轮播数据
 			async getSwiper() {
